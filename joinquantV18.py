@@ -311,5 +311,17 @@ def initialize(context):
     log.info("=" * 50)
 
 
+
 def init(context):
     initialize(context)
+    
+# 回测结果直接和买入持有对比
+def backtest_compare(context):
+    # 计算买入持有收益
+    buy_hold_return = (context.portfolio.positions[g.stock].close / context.portfolio.starting_cash - 1)
+    # 计算策略收益
+    strategy_return = context.portfolio.total_value / context.portfolio.starting_cash - 1
+    
+    log.info(f"策略收益: {strategy_return:.2%} | 买入持有: {buy_hold_return:.2%}")
+    if strategy_return < buy_hold_return:
+        log.warn("⚠️ 策略跑输买入持有，建议简化")
