@@ -4,7 +4,7 @@ from camel.messages import BaseMessage
 from camel.models import ModelFactory
 from camel.types import ModelPlatformType, ModelType
 
-# 设置 API Key（建议从环境变量读取）
+# 设置 API Key
 os.environ["DEEPSEEK_API_KEY"] = "sk-"
 
 # 配置模型
