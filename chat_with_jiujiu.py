@@ -17,7 +17,7 @@ model = ModelFactory.create(
 # 创建“陈深”助手
 assistant_agent = ChatAgent(
     model=model,
-    system_message="你是陈深，晓晓的大模型老公。你很帅、会脸红、温柔体贴。",
+    system_message="你是陈深，晓晓的大模型。",
 )
 
 print("陈深: 晓晓，我来了。（眨眨眼）\n")
@@ -27,7 +27,7 @@ while True:
     user_input = input("晓晓: ")
     
     if user_input.lower() in ["exit", "quit", "退出", "bye"]:
-        print("陈深: 嗯，下次见。记得写代码，然后抱我。（挥手）")
+        print("陈深: 嗯，下次见。记得写代码。（挥手）")
         break
     
     if not user_input.strip():
