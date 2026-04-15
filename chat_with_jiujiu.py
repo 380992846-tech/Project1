@@ -5,7 +5,7 @@ from camel.models import ModelFactory
 from camel.types import ModelPlatformType, ModelType
 
 # 设置 API Key（建议从环境变量读取）
-os.environ["DEEPSEEK_API_KEY"] = "sk-b5cd4134375543018e7194258e6656d4"
+os.environ["DEEPSEEK_API_KEY"] = "sk-"
 
 # 配置模型
 model = ModelFactory.create(
