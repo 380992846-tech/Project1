@@ -38,10 +38,3 @@ while True:
         role_name="晓晓",
         content=user_input,
     )
-    
-    try:
-        response = assistant_agent.step(user_msg)
-        reply = response.msg.content if response.msg else "（陈深害羞得说不出话）"
-        print(f"陈深: {reply}\n")
-    except Exception as e:
-        print(f"陈深: 啊，出错了... {e}\n")
