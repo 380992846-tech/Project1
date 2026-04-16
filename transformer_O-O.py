@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
 
-# ========== 1. 模型定义（和你刚才的一样）==========
+# ========== 1. 模型定义（手搓小模型）==========
 class MiniTransformer(nn.Module):
     def __init__(self, vocab_size=100, d_model=32, nhead=4, num_layers=2, max_len=50):
         super().__init__()
@@ -72,11 +72,11 @@ for epoch in range(num_epochs):
         # 计算损失（需要reshape）
         loss = criterion(predictions.reshape(-1, vocab_size), batch_y.reshape(-1))
         
-        # 反向传播（和你线性回归一模一样！）
+        # 反向传播（线性回归）
         optimizer.zero_grad()
         loss.backward()
         
-        # 梯度裁剪（防止梯度爆炸，Transformer训练常用）
+        # 梯度裁剪（防止梯度爆炸）
         torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
         
         optimizer.step()
