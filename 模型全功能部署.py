@@ -377,16 +377,16 @@ import json
 from pathlib import Path
 
 st.set_page_config(page_title="Transformer训练监控", layout="wide")
-st.title("🤖 Transformer训练监控仪表盘")
+st.title(" Transformer训练监控仪表盘")
 
 # 侧边栏配置
 with st.sidebar:
-    st.header("⚙️ 超参数配置")
+    st.header(" 超参数配置")
     learning_rate = st.slider("学习率", 0.0001, 0.01, 0.001, 0.0001)
     num_layers = st.slider("Transformer层数", 1, 8, 4)
     batch_size = st.selectbox("批次大小", [16, 32, 64, 128])
     
-    st.header("🎮 生成控制")
+    st.header(" 生成控制")
     temperature = st.slider("温度参数", 0.1, 2.0, 0.8, 0.05)
     gen_length = st.slider("生成长度", 50, 500, 200)
 
@@ -410,7 +410,7 @@ with col1:
         st.info("暂无训练数据，请先训练模型")
 
 with col2:
-    st.subheader("💾 模型信息")
+    st.subheader("模型信息")
     if Path("best_model.pth").exists():
         st.success("✅ 模型已训练")
         model_size = Path("best_model.pth").stat().st_size / 1024 / 1024
@@ -418,7 +418,7 @@ with col2:
     else:
         st.warning("未找到训练好的模型")
     
-    st.subheader("🎨 在线生成")
+    st.subheader(" 在线生成")
     prompt = st.text_input("输入提示词", "机器学习")
     if st.button("生成"):
         st.write("生成中...")
